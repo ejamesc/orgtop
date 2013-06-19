@@ -10,6 +10,8 @@ gem 'dm-aggregates'
 gem 'dm-migrations'
 gem 'rerun'
 
+gem "pony", "~> 1.4.1"
+
 group :test do
   gem 'rspec', :require => 'spec'
   gem 'rack-test'
