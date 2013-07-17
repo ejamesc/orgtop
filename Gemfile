@@ -8,6 +8,7 @@ gem 'dm-timestamps'
 gem 'dm-validations'
 gem 'dm-aggregates'
 gem 'dm-migrations'
+gem 'dm-mysql-adapter'
 gem 'rerun'
 
 gem "pony", "~> 1.4.1"

@@ -4,6 +4,7 @@ require 'sinatra'
 require 'pony'
 require File.join(File.dirname(__FILE__), 'environment')
 
+
 configure do
   set :views, "#{File.dirname(__FILE__)}/views"
 
@@ -18,6 +19,9 @@ error do
   Kernel.puts e.backtrace.join("\n")
   'Application error'
 end
+
+# Data Mapper setup
+DataMapper.setup(:default, "mysql://#{settings.mysql_user}:#{settings.mysql_password}@hostname/orgtop-dev")
 
 helpers do
   # add your helpers here
