@@ -11,8 +11,9 @@ gem 'dm-migrations'
 gem 'rerun'
 
 gem "pony", "~> 1.4.1"
-gem "whenever", "~> 0.8.2"
 gem "mailman", "~> 0.6.0"
+gem "clockwork", "~> 0.5.3"
+gem "stalker", "~> 0.9.0"
 
 group :test do
   gem 'rspec', :require => 'spec'
