@@ -3,13 +3,14 @@ require 'stalker'
 
 module Clockwork
   configure do |config| 
-    config[:tz] = "America/Los_Angeles" # change this
+    config[:tz] = "Asia/Singapore" # change this
   end
 
   handler do |job| 
     Stalker.enqueue(job)
   end
 
-  #every(1.week, 'send.prompt', at: 'Wednesday 22:25')
-  every(10.seconds, 'send.prompt')
+  every(1.week, 'send.prompt', at: 'Monday 7:30')
+  every(1.week, 'send.digest', at: 'Monday 21:00')
+  #every(10.seconds, 'send.prompt') # for testing only
 end
