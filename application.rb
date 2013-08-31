@@ -20,7 +20,7 @@ error do
 end
 
 # Data Mapper setup
-DataMapper.setup(:default, "mysql://#{settings.mysql_user}:#{settings.mysql_password}@hostname/orgtop_dev")
+DataMapper.setup(:default, "mysql://#{settings.mysql_user}:#{settings.mysql_password}@localhost/orgtop_dev")
 
 helpers do
   # add your helpers here

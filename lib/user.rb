@@ -8,6 +8,5 @@ class User
   property :created_at, DateTime
   property :updated_at, DateTime
 
-  validates_presence_of :name
-  validates_presence_of :email
+  validates_presence_of :name, :email
 end
