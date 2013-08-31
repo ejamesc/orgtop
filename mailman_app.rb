@@ -17,4 +17,5 @@ Mailman::Application.run do
   to 'orgtop@(linuxnus.org|nushackers.org)' do
     puts "Email Received!"
   end
+
 end

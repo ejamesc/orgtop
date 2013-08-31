@@ -3,7 +3,7 @@ orgtop
 Top for humans in organizations. Sends email once a week, prompting for a summary of activities, then emails a digest at the end of the day.
 
 Dev notes
-=========
+---------
 Create a database called 'orgtop_dev'
 
 Create a config.yml file with the following properties:
