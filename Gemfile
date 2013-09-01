@@ -10,6 +10,7 @@ gem 'dm-aggregates'
 gem 'dm-migrations'
 gem 'dm-mysql-adapter'
 gem 'rerun'
+gem "chronic", "~> 0.10.1"
 
 gem "pony", "~> 1.4.1"
 gem "mailman", "~> 0.6.0"

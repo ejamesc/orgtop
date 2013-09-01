@@ -11,6 +11,7 @@ GEM
     atomic (1.1.10)
     bcrypt-ruby (3.1.0)
     beanstalk-client (1.1.1)
+    chronic (0.10.1)
     clockwork (0.5.3)
       activesupport (~> 4.0.0)
       tzinfo (~> 0.3.35)
@@ -135,6 +136,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  chronic (~> 0.10.1)
   clockwork (~> 0.5.3)
   data_mapper
   dm-aggregates
