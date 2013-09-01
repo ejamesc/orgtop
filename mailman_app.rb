@@ -15,7 +15,8 @@ Mailman.config.poll_interval = 20
 
 Mailman::Application.run do
   to 'orgtop@(linuxnus.org|nushackers.org)' do
-    puts "Email Received!"
+    # if current time is between nearest Monday prompt time and digest time
+    # store response to Responses
   end
 
 end
