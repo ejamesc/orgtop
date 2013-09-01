@@ -4,7 +4,7 @@
 
 libs = []
 libs << "irb/completion"
-libs << File.dirname(__FILE__) + '/../environment.rb'
+libs << File.expand_path(__FILE__).chomp("/#{__FILE__}") + '/environment.rb'
 
 command_line = []
 command_line << "irb"
