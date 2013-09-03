@@ -25,5 +25,4 @@ Mailman::Application.run do
       user.responses.create(content: message)
     end
   end
-
 end
