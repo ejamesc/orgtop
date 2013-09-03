@@ -27,7 +27,20 @@ get '/' do
 end
 
 get '/users' do
-  @users = User.all
+  @users = User.all(order: [ :name.asc ])
   erb :users
+end
+
+post '/users/new' do
+  user = User.create(name: params[:name],
+              username: params[:username],
+              email: params[:email],
+              role: params[:role])
+  if !user # problematic
+    erb "ERROR"
+  else
+    redirect "/users", 303
+  end
+  redirect "/users", 303
 end
 

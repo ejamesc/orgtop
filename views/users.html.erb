@@ -13,8 +13,18 @@
     <% end %>
     </ul>
 
-    <form>
-      
+      <hr/>
+      <h3>New User</h3>
+    <form action="/users/new" method="post">
+      <label>Name:</label><br/>
+      <input type='text' name='name' value='' /><br/>
+      <label>Username (___@nushackers.org):</label><br/>
+      <input type='text' name='username' value='' /><br/>
+      <label>Email:</label><br/>
+      <input type='text' name='email' value='' /><br/>
+      <label>Role:</label><br/>
+      <input type='text' name='role' value='' /><br/>
+      <input type='submit' value='Create'>
     </form>
   </body>
 </html>
