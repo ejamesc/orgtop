@@ -44,3 +44,24 @@ post '/users/new' do
   redirect "/users", 303
 end
 
+get '/users/edit/:username' do
+  @user = User.first(username: params[:username])
+
+  if @user
+    erb :users_edit
+  else 
+    halt 404, "User not found!"
+  end
+end
+
+post '/users/edit/:username' do
+  user = User.first(username: params[:username])
+
+  if user
+    filtered_params = params.select { |k, v| %w[name username email role].include?(k) }
+    user.update(filtered_params)
+    redirect "/users", 303
+  else 
+    halt 404, "User not found!"
+  end
+end

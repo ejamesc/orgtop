@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>Edit User</title>
+  </head>
+
+  <body>
+    <h1>Edit User</h1>
+    <form action="/users/edit/<%= @user.username %>" method="post">
+      <label>Name:</label><br/>
+      <input type='text' name='name' value='<%= @user.name %>' /><br/>
+      <label>Username (___@nushackers.org):</label><br/>
+      <input type='text' name='username' value='<%= @user.username %>' /><br/>
+      <label>Email:</label><br/>
+      <input type='text' name='email' value='<%= @user.email %>' /><br/>
+      <label>Role:</label><br/>
+      <input type='text' name='role' value='<%= @user.role %>' /><br/>
+      <input type='submit' value='Edit'>
+    </form>
+  </body>
+</html>

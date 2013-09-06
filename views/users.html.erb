@@ -8,7 +8,7 @@
     <ul>
       <% @users.each do |user| %>
         <li>
-        <strong><%= user.name %></strong> (<em><%= user.email %></em>) role: <strong><%= user.role %></strong>
+        <strong><%= user.name %></strong> (<em><%= user.email %></em>) role: <strong><%= user.role %></strong> || <a href="/users/edit/<%= user.username %>">EDIT</a>
       </li>
     <% end %>
     </ul>
