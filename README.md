@@ -34,6 +34,6 @@ production:
   password: "A password for login"
 ```
 
-Do a `bundle install`, then a `brew install beanstalkd`
+Do a `bundle install`, then install beanstalkd
 
 To run orgtop, ensure beanstalkd is running, then `stalk jobs.rb` and `clockwork clock.rb`. You may start the webapp with `rerun application.rb`.
