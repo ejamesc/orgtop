@@ -5,6 +5,7 @@ require File.join(File.dirname(__FILE__), 'environment')
 
 settings_yaml = YAML.load_file("config.yml")["production"]
 
+# Strips out mail headers and returns only the mail body
 def process_message(mail)
   if mail.multipart?
     part = mail.parts.select { |p| p.content_type =~ /text\/html/ }.first rescue nil
@@ -14,9 +15,22 @@ def process_message(mail)
   else
     message = mail.body.decoded
   end
-  MailExtract.new(message).body
+
+  extract_msg = MailExtract.new(message).body
+  encode_string(extract_msg)
 end
 
+def encode_string(str)
+  encoding_options = {
+    :invalid           => :replace,  # Replace invalid byte sequences
+    :undef             => :replace,  # Replace anything not defined in ASCII
+    :replace           => '',        # Use a blank for those replacements
+    :universal_newline => true       # Always break lines with \n
+  }
+  str.encode Encoding.find('ASCII'), encoding_options
+end
+
+# Mailman configuration
 Mailman.config.rails_root = nil
 #Mailman.config.logger = Logger.new("mailman.log")
 Mailman.config.pop3 = { username: settings_yaml["gmail_email"],
