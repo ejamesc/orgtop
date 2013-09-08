@@ -37,9 +37,7 @@ post '/users/new' do
               email: params[:email],
               role: params[:role])
   if !user # problematic
-    erb "ERROR"
-  else
-    redirect "/users", 303
+    halt 500, "User create error!"
   end
   redirect "/users", 303
 end
