@@ -53,11 +53,20 @@ get '/logout' do
 end
 
 get '/users' do
+  protected!
   @users = User.all(order: [ :name.asc ])
   erb :users
 end
 
+delete '/users/:id' do
+  protected!
+  @user = User.get(params[:id])
+  @user.destroy
+  redirect '/users', 303
+end
+
 post '/users/new' do
+  protected!
   user = User.create(name: params[:name],
               username: params[:username],
               email: params[:email],
@@ -69,6 +78,7 @@ post '/users/new' do
 end
 
 get '/users/edit/:username' do
+  protected!
   @user = User.first(username: params[:username])
 
   if @user
@@ -79,6 +89,7 @@ get '/users/edit/:username' do
 end
 
 post '/users/edit/:username' do
+  protected!
   user = User.first(username: params[:username])
 
   if user

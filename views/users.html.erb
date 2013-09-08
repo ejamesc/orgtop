@@ -8,7 +8,7 @@
     <ul>
       <% @users.each do |user| %>
         <li>
-        <strong><%= user.name %></strong> (<em><%= user.email %></em>) role: <strong><%= user.role %></strong> || <a href="/users/edit/<%= user.username %>">EDIT</a>
+        <strong><%= user.name %></strong> (<em><%= user.email %></em>) role: <strong><%= user.role %></strong> || <a href="/users/edit/<%= user.username %>">EDIT</a> || <form style="display: inline" action='/users/<%= user.id %>' method='post' onsubmit='return confirm("Oi, you sure want to delete or not?")'><input type='hidden' name='_method' value='delete'><input type='submit' value='DELETE'></form>
       </li>
     <% end %>
     </ul>
@@ -26,5 +26,8 @@
       <input type='text' name='role' value='' /><br/>
       <input type='submit' value='Create'>
     </form>
+
+    <hr/>
+    <p><a href='/logout'>LOGOUT</a></p>
   </body>
 </html>
