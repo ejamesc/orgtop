@@ -17,6 +17,9 @@ development:
   coreteam_email: "coreteam_email"
   prompt_time: "this week monday 7:30" # chronic parseable date time
   digest_time: "this week monday 21:00" 
+  username: "A username for login"
+  token: "A long random string of numbers and letters"
+  password: "A password for login"
 
 production:
   mysql_user: "mysql_user"
@@ -24,8 +27,11 @@ production:
   gmail_email: "gmail_email"
   gmail_password: "gmail_password"
   coreteam_email: "coreteam_email"
-  prompt_time: "this week monday 7:30" # chronic parseable date time
+  prompt_time: "this week monday 7:30"
   digest_time: "this week monday 21:00" 
+  username: "A username for login"
+  token: "A long random string of numbers and letters"
+  password: "A password for login"
 ```
 
 Do a `bundle install`, then a `brew install beanstalkd`

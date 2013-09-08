@@ -5,7 +5,7 @@ require File.join(File.dirname(__FILE__), 'environment')
 
 settings_yaml = YAML.load_file("config.yml")["production"]
 
-# Strips out mail headers and returns only the mail body
+# Strips out mail headers, replies and quotes and returns only the mail body
 def process_message(mail)
   if mail.multipart?
     part = mail.parts.select { |p| p.content_type =~ /text\/plain/ }.first rescue nil

@@ -18,12 +18,38 @@ error do
 end
 
 helpers do
-  # add your helpers here
+  def admin?
+    go_forth = request.cookies[settings.username] == settings.token
+    puts go_forth
+    go_forth
+  end
+
+  def protected!
+    halt [ 401, 'Not authorized, you slimey curr!' ] unless admin?
+  end
 end
 
 # root page
 get '/' do
   erb :index
+end
+
+get '/login' do
+  erb :login
+end
+
+post '/login' do
+  if params['username']==settings.username && params['password']==settings.password
+    response.set_cookie(settings.username, settings.token) 
+    redirect '/users'
+  else
+    "Username or Password incorrect. Again!"
+  end
+end
+
+get '/logout' do
+  response.set_cookie(settings.username, false) 
+  redirect '/'
 end
 
 get '/users' do
