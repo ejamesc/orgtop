@@ -135,7 +135,6 @@ DEPENDENCIES
   chronic (~> 0.10.1)
   clockwork (~> 0.5.3)
   data_mapper
-  dm-core
   dm-mysql-adapter
   mail_extract (~> 0.1.4)
   mailman (~> 0.6.0)
