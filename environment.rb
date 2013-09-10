@@ -12,6 +12,7 @@ configure do
     :url_base => 'http://localhost:4567/'
   )
 
+  set :environment, :production if settings.root == "/home/shadowsun7/webapps/orgtop/orgtop"
   settings_yaml = YAML.load_file(settings.root + "/config.yml")[settings.environment.to_s]
   settings_yaml.each_pair do |k, v|
     set(k.to_sym, v)
