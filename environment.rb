@@ -1,10 +1,6 @@
 require 'rubygems'
 require 'bundler/setup'
-require 'dm-core'
-require 'dm-timestamps'
-require 'dm-validations'
-require 'dm-aggregates'
-require 'dm-migrations'
+require 'data_mapper'
 require 'ostruct'
 
 require 'sinatra' unless defined?(Sinatra)
