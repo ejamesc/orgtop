@@ -25,7 +25,7 @@ configure do
   $LOAD_PATH.unshift("#{File.dirname(__FILE__)}/lib")
   Dir.glob("#{File.dirname(__FILE__)}/lib/*.rb") { |lib| require File.basename(lib, '.*') }
 
-  DataMapper.setup(:default, (ENV["DATABASE_URL"] || "mysql://#{settings.mysql_user}:#{settings.mysql_password}@localhost/orgtop_dev"))
+  DataMapper.setup(:default, (ENV["DATABASE_URL"] || "mysql://#{settings.mysql_user}:#{settings.mysql_password}@localhost/shadowsun7_orgtop"))
 
   DataMapper.finalize
 end
