@@ -9,7 +9,7 @@ configure do
   SiteConfig = OpenStruct.new(
     :title => 'OrgTop',
     :author => 'Eli James',
-    :url_base => 'http://localhost:4567/'
+    :url_base => 'http://orgtop.nushackers.org'
   )
 
   set :environment, :production if settings.root == "/home/shadowsun7/webapps/orgtop/orgtop"

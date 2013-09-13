@@ -35,6 +35,9 @@ get '/' do
 end
 
 get '/login' do
+  if admin? 
+    redirect '/users'
+  end
   erb :login
 end
 
