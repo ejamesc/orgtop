@@ -11,6 +11,7 @@ gem "clockwork", "~> 0.5.3"
 gem "stalker", "~> 0.9.0"
 gem "chronic", "~> 0.10.1"
 gem "mail_extract", "~> 0.1.4"
+gem "god", "~> 0.13.2"
 
 group :test do
   gem 'rspec', :require => 'spec'
