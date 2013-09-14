@@ -3,7 +3,7 @@ require 'chronic'
 require 'mail_extract'
 require File.join(File.dirname(__FILE__), 'environment')
 
-settings_yaml = YAML.load_file("config.yml")["production"]
+settings_yaml = YAML.load_file(File.join(File.dirname(__FILE__), "config.yml"))["production"]
 
 # Strips out mail headers, replies and quotes and returns only the mail body
 def process_message(mail)

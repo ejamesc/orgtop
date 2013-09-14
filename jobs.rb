@@ -4,7 +4,7 @@ require 'chronic'
 require File.join(File.dirname(__FILE__), 'environment')
 include Stalker
 
-CONFIG_YAML = YAML.load_file(Dir.pwd + "/config.yml")
+CONFIG_YAML = YAML.load_file(File.join(File.dirname(__FILE__), "config.yml"))
 EMAIL_USERNAME = CONFIG_YAML["production"]['gmail_email']
 EMAIL_PASSWORD = CONFIG_YAML["production"]['gmail_password']
 CORETEAM_EMAIL = CONFIG_YAML["production"]['coreteam_email']
