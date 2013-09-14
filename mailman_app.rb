@@ -40,7 +40,7 @@ Mailman.config.pop3 = { username: settings_yaml["gmail_email"],
   ssl: true
 }
 Mailman.config.graceful_death = true
-Mailman.config.poll_interval = 10 # change to something logical for production
+Mailman.config.poll_interval = 300
 
 Mailman::Application.run do
   from(/(.*)@(linuxnus.org|nushackers.org)/) do |username|
