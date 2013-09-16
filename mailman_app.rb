@@ -32,7 +32,7 @@ end
 
 # Mailman configuration
 Mailman.config.rails_root = nil
-#Mailman.config.logger = Logger.new("mailman.log")
+Mailman.config.logger = Logger.new(File.join(File.dirname(__FILE__), "mailman.log"))
 Mailman.config.pop3 = { username: settings_yaml["gmail_email"],
   password: settings_yaml["gmail_password"],
   server: 'pop.gmail.com',
@@ -42,14 +42,17 @@ Mailman.config.pop3 = { username: settings_yaml["gmail_email"],
 Mailman.config.graceful_death = true
 Mailman.config.poll_interval = 300
 
+# Chronic settings
+Time.zone = "Asia/Singapore"
+Chronic.time_class = Time.zone
+
 Mailman::Application.run do
   from(/(.*)@(linuxnus.org|nushackers.org)/) do |username|
     prompt_time = Chronic.parse(settings_yaml["prompt_time"])
     digest_time = Chronic.parse(settings_yaml["digest_time"])
-    current_time = Time.now
 
     # if current time is between nearest prompt time and digest time
-    if current_time > prompt_time && current_time < digest_time
+    if Time.now > prompt_time && Time.now < digest_time
       user = User.first(username: username)
       if user
         msg_body = process_message(message)
