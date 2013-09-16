@@ -30,6 +30,14 @@ def encode_string(str)
   str.encode Encoding.find('ASCII'), encoding_options
 end
 
+def with_time_zone(tz_name) 
+  prev_tz = ENV['TZ']
+  ENV['TZ'] = tz_name
+  yield
+ensure
+  ENV['TZ'] = prev_tz
+end
+
 # Mailman configuration
 Mailman.config.rails_root = nil
 Mailman.config.logger = Logger.new(File.join(File.dirname(__FILE__), "mailman.log"))
@@ -43,13 +51,12 @@ Mailman.config.graceful_death = true
 Mailman.config.poll_interval = 300
 
 # Chronic settings
-Time.zone = "Asia/Singapore"
-Chronic.time_class = Time.zone
+timezone = "Asia/Singapore"
 
 Mailman::Application.run do
   from(/(.*)@(linuxnus.org|nushackers.org)/) do |username|
-    prompt_time = Chronic.parse(settings_yaml["prompt_time"])
-    digest_time = Chronic.parse(settings_yaml["digest_time"])
+    prompt_time = with_time_zone(timezone) { Chronic.parse(settings_yaml["prompt_time"]) }
+    digest_time = with_time_zone(timezone) { Chronic.parse(settings_yaml["digest_time"]) } 
 
     # if current time is between nearest prompt time and digest time
     if Time.now > prompt_time && Time.now < digest_time
