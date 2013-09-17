@@ -62,6 +62,7 @@ Mailman::Application.run do
     if Time.now > prompt_time && Time.now < digest_time
       user = User.first(username: username)
       if user
+        Mailman.logger.info "About to save email from #{user.name} with username #{username}"
         msg_body = process_message(message)
         user.responses.create(content: msg_body)
       end
