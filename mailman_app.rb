@@ -57,6 +57,7 @@ Mailman::Application.run do
   from(/(.*)@(linuxnus.org|nushackers.org)/) do |username|
     prompt_time = with_time_zone(timezone) { Chronic.parse(settings_yaml["prompt_time"]) }
     digest_time = with_time_zone(timezone) { Chronic.parse(settings_yaml["digest_time"]) } 
+    Mailman.logger.info "prompt_time is: #{prompt_time} and digest_time is: #{digest_time}"
 
     # if current time is between nearest prompt time and digest time
     if Time.now > prompt_time && Time.now < digest_time
