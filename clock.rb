@@ -10,7 +10,7 @@ module Clockwork
     Stalker.enqueue(job)
   end
 
-  every(1.week, 'send.prompt', at: 'Monday 7:30')
+  every(1.week, 'send.prompt', at: 'Saturday 7:30')
   every(1.week, 'send.digest', at: 'Monday 21:00')
   #every(10.seconds, 'send.prompt') # for testing only
 end
