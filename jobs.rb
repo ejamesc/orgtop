@@ -22,7 +22,7 @@ PROMPT_TIME = with_time_zone("Asia/Singapore") { Chronic.parse(CONFIG_YAML["prod
 # Jobs Definition
 job 'send.prompt' do |args|
   User.all.each do |user|
-    send_email(user.email, "[orgtop] What happened over the past week?", "Hello #{user.name}!\n\nIt's time for you to make your weekly orgtop update. My records show that you're the #{user.role} for NUS Hackers. Respond to this email with a short update of events related to your responsibilities over the past week, and I'll add it to an update digest for coreteam on Monday night.\n\nWarmly,\nYour friendly neighbourhood orgtop.")
+    send_email(user.email, "[orgtop] What happened over the past week?", "Hello #{user.name}!\n\nIt's time for you to make your weekly orgtop update. My records show that you're the #{user.role} for NUS Hackers. Respond to this email with a short update of events related to your responsibilities over the past week, and I'll add it to an update digest for coreteam at Monday, 9pm.\n\nWarmly,\nYour friendly neighbourhood orgtop.")
   end
 end
 
