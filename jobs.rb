@@ -1,6 +1,7 @@
 require 'stalker'
 require 'pony'
 require 'chronic'
+require File.join(File.dirname(__FILE__), 'helpers')
 require File.join(File.dirname(__FILE__), 'environment')
 include Stalker
 
@@ -8,14 +9,6 @@ CONFIG_YAML = YAML.load_file(File.join(File.dirname(__FILE__), "config.yml"))
 EMAIL_USERNAME = CONFIG_YAML["production"]['gmail_email']
 EMAIL_PASSWORD = CONFIG_YAML["production"]['gmail_password']
 CORETEAM_EMAIL = CONFIG_YAML["production"]['coreteam_email']
-
-def with_time_zone(tz_name) 
-  prev_tz = ENV['TZ']
-  ENV['TZ'] = tz_name
-  yield
-ensure
-  ENV['TZ'] = prev_tz
-end
 
 # Jobs Definition
 job 'send.prompt' do |args|
