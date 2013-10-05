@@ -1,6 +1,5 @@
 require 'mailman'
 require 'chronic'
-require 'mail_extract'
 require File.join(File.dirname(__FILE__), 'helpers')
 require File.join(File.dirname(__FILE__), 'environment')
 

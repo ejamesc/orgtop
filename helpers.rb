@@ -1,3 +1,5 @@
+require 'mail_extract'
+
 # Strips out mail headers, replies and quotes and returns only the mail body
 def process_message(mail)
   if mail.multipart?

@@ -5,7 +5,7 @@ Top for humans in organizations. Sends email once a week, prompting for a summar
 Dev notes
 ---------
 Create a database called 'shadowsun7_orgtop' (Or change the database url in
-`environment.rb` - forgive me, I was too lazy to generalized this)
+`environment.rb` - forgive me, I was too lazy to generalize this). Run `rake db:upgrade`
 
 Create a config.yml file with the following properties:
 
