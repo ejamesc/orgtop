@@ -28,14 +28,11 @@ Mailman::Application.run do
 
     Mailman.logger.info "Time now is: #{time_now} prompt_time is: #{prompt_time} and digest_time is: #{digest_time}"
 
-    # if current time is between nearest prompt time and digest time
-    if time_now > prompt_time && time_now < digest_time
-      user = User.first(username: username)
-      if user
-        Mailman.logger.info "About to save email from #{user.name} with username #{username}"
-        msg_body = process_message(message)
-        user.responses.create(content: msg_body)
-      end
+    user = User.first(username: username)
+    if user
+      Mailman.logger.info "About to save email from #{user.name} with username #{username}"
+      msg_body = process_message(message)
+      user.responses.create(content: msg_body)
     end
   end
 
