@@ -64,6 +64,7 @@ end
 delete '/users/:id' do
   protected!
   @user = User.get(params[:id])
+  @user.responses.destroy
   @user.destroy
   redirect '/users', 303
 end
